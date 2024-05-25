@@ -1,8 +1,14 @@
 <?php
 
 require_once "includes/config.php";
+$pageTitle = "To Do App";
 
-$pageTitle = "Home Page";
+if (!isset($_SESSION['user'])) {
+  getHeader();
+  echo "</body></html>";
+  exit();
+}
+
 getHeader();
 
 include 'includes/add-task.php';

@@ -1,5 +1,6 @@
 <?php
-$stmt = $conn->query("SELECT * FROM `tasks` ORDER BY id DESC");
+$user = $_SESSION['user'];
+$stmt = $conn->query("SELECT * FROM `tasks` WHERE username = '$user' ORDER BY id DESC");
 $tasks = $stmt->fetchAll(PDO::FETCH_OBJ);
 function check($a, $b)
 {

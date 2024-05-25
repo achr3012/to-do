@@ -2,12 +2,13 @@
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
   $descr = filter_var(trim($_POST['descr']), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-  if (strlen($descr) > 3) {
-    $stmt = $conn->prepare("INSERT INTO `tasks` (`description`) VALUES (:descr)");
+  if (strlen($descr) > 3 || !isset($_SESSION['user'])) {
+    $stmt = $conn->prepare("INSERT INTO `tasks` (`description`, `username`) VALUES (:descr, :user)");
     $stmt->bindParam(':descr', $descr);
-    if (!$stmt->execute()) {
-      $err = "Something went wrong";
-    }
+    $stmt->bindParam(':user', $_SESSION['user']);
+    $stmt->execute();
+    header("Location: /");
+    exit;
   }
 }
 ?>
