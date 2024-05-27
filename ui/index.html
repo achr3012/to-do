@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do List</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+
+<body>
+  <a href="https://github.com/achr3012" target="_blank" id="achref">#AcHReF</a>
+  <h1><a href="/">To Do List</a></h1>
+  <nav>
+    <div class="container">
+      <ul>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="register.html" class="special">Create a new Account</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- <div class="container guest">Please login in order to use the app (:</div> -->
+
+  <div class="container categories">
+    <div class="category">
+      <h2>Home works</h2>
+      <div class="tasks">
+
+        <div class="task">
+          <form action="" method="post">
+            <label for="t1">
+              <input type="checkbox" name="" id="t1" onchange="sendForm(this)">
+              <span class="checkmark"></span>
+            </label>
+          </form>
+          <label for="t1" class="desc">Math</label>
+          <a href="#">&times</a>
+        </div>
+
+        <div class="task">
+          <form action="" method="post">
+            <label for="t2">
+              <input type="checkbox" name="" id="t2" onchange="sendForm(this)">
+              <span class="checkmark"></span>
+            </label>
+          </form>
+          <label for="t2" class="desc">Philo</label>
+          <a href="#">&times</a>
+        </div>
+
+        <div class="task">
+          <form action="" method="post">
+            <label for="t3">
+              <input type="checkbox" name="" id="t3" onchange="sendForm(this)">
+              <span class="checkmark"></span>
+            </label>
+          </form>
+          <label for="t3" class="desc">Physics</label>
+          <a href="#">&times</a>
+        </div>
+      </div>
+      <div class="add">
+        <button type="button" onclick="openForm(this)">Add task</button>
+        <form action="" method="post">
+          <input type="text" name="" id="">
+          <button type="submit">Add</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="category">
+      <h2>Home works</h2>
+      <div class="tasks">
+
+        <div class="task">
+          <form action="" method="post">
+            <label for="c1">
+              <input type="checkbox" name="" id="c1" onchange="sendForm(this)">
+              <span class="checkmark"></span>
+            </label>
+          </form>
+          <label for="c1" class="desc">Math</label>
+          <a href="#">&times</a>
+        </div>
+
+        <div class="task">
+          <form action="" method="post">
+            <label for="c2">
+              <input type="checkbox" name="" id="c2" onchange="sendForm(this)">
+              <span class="checkmark"></span>
+            </label>
+          </form>
+          <label for="c2" class="desc">Philo</label>
+          <a href="#">&times</a>
+        </div>
+
+        <div class="task">
+          <form action="" method="post">
+            <label for="c3">
+              <input type="checkbox" name="" id="c3" onchange="sendForm(this)">
+              <span class="checkmark"></span>
+            </label>
+          </form>
+          <label for="c3" class="desc">Physics</label>
+          <a href="#">&times</a>
+        </div>
+      </div>
+      <div class="add">
+        <button type="button" onclick="openForm(this)">Add task</button>
+        <form action="" method="post">
+          <input type="text" name="" id="">
+          <button type="submit">Add</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="category">
+      <h2>Home works</h2>
+      <div class="tasks">
+
+        <div class="task">
+          <form action="" method="post">
+            <label for="a1">
+              <input type="checkbox" name="" id="a1" onchange="sendForm(this)">
+              <span class="checkmark"></span>
+            </label>
+          </form>
+          <label for="a1" class="desc">Math</label>
+          <a href="#">&times</a>
+        </div>
+
+        <div class="task">
+          <form action="" method="post">
+            <label for="a2">
+              <input type="checkbox" name="" id="a2" onchange="sendForm(this)">
+              <span class="checkmark"></span>
+            </label>
+          </form>
+          <label for="a2" class="desc">Philo</label>
+          <a href="#">&times</a>
+        </div>
+
+        <div class="task">
+          <form action="" method="post">
+            <label for="a3">
+              <input type="checkbox" name="" id="a3" onchange="sendForm(this)">
+              <span class="checkmark"></span>
+            </label>
+          </form>
+          <label for="a3" class="desc">Physics</label>
+          <a href="#">&times</a>
+        </div>
+      </div>
+      <div class="add">
+        <button type="button" onclick="openForm(this)">Add task</button>
+        <form action="" method="post">
+          <input type="text" name="" id="">
+          <button type="submit">Add</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function sendForm(checkbox) {
+      // checkbox.closest('form').submit();
+    }
+
+    function openForm(button) {
+      button.style.display = "none";
+      button.nextElementSibling.style.display = "flex";
+    }
+
+    const addForms = document.querySelectorAll('.add form');
+    for (let form of addForms) {
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (form.querySelector('input').value.trim() === "") {
+          form.style.display = "none";
+          form.previousElementSibling.style.display = "flex";
+        } else {
+          form.submit();
+        }
+      });
+    }
+
+  </script>
+</body>
+
+</html>

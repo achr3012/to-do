@@ -1,0 +1,357 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Kalam", cursive;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #e5e3c9;
+  color: #789395;
+  font-size: 18px;
+}
+
+.err {
+  padding: 4px 14px;
+  color: rgb(127 0 0 / 75%);
+  background: #ee525336;
+}
+
+h1 {
+  font-style: italic;
+  text-align: center;
+  font-size: 3.333rem;
+  text-shadow: 2px 3px 2px #94b49f;
+  padding: 3rem 0 2rem;
+}
+
+h1 a {
+  color: #b4cfb0;
+  text-decoration: none;
+}
+
+#achref {
+  position: absolute;
+  left: 0;
+  top: 0%;
+  padding: 6px 1rem;
+  text-decoration: none;
+  background-color: #789395;
+  color: #e5e3c9;
+  font-size: 150%;
+}
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+nav {
+  background-color: #b4cfb0;
+  margin-bottom: 2rem;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav ul a {
+  padding: 6px 1rem;
+  display: block;
+  text-decoration: none;
+  color: #789395;
+  transition: 0.2s ease-out;
+}
+
+nav ul a:hover {
+  background-color: #94b49f;
+  color: #e5e3c9;
+}
+
+nav ul .special {
+  border: 2px dashed #94b49f;
+}
+
+.guest {
+  text-align: center;
+  padding: 5rem 0;
+}
+
+.categories {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4rem;
+  margin: 3rem auto 3rem;
+}
+
+.category {
+  flex: 0.333;
+  padding: 2rem 1rem;
+  background-color: #b4cfb0;
+  box-shadow: 1rem 1rem 0px #789395;
+  position: relative;
+  margin-top: 4rem;
+}
+
+.category::after {
+  content: "";
+  background-image: url(grid-sheet-sticker.png);
+  background-size: cover;
+  width: 60px;
+  height: 138px;
+  position: absolute;
+  top: -77px;
+  left: calc(50% - 30px);
+}
+
+.category h2 {
+  padding: 2rem 0 10px;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.task {
+  display: flex;
+  gap: 5px;
+}
+
+.task .desc {
+  flex-grow: 1;
+  cursor: pointer;
+  font-weight: 300;
+  font-size: 120%;
+  text-transform: capitalize;
+}
+
+.task .checked {
+  text-decoration: line-through;
+  font-style: italic;
+}
+
+.task form {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.task form input {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #789395;
+  cursor: pointer;
+}
+
+.task form:hover input ~ .checkmark {
+  background-color: #789395b3;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.task form input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.task form .checkmark:after {
+  left: 8px;
+  top: 0px;
+  width: 5px;
+  height: 16px;
+  border: solid #e5e3c9;
+  border-width: 0 5px 5px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.task a {
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: #789395;
+  transition: color 0.2s ease-in;
+}
+
+.task a:hover {
+  color: #ee5253;
+}
+
+.add button[type="button"] {
+  margin: 10px auto 0;
+  display: block;
+}
+
+.add button:hover {
+  background-color: #94b49f;
+}
+
+.add form {
+  display: none;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.add form input {
+  flex-grow: 1;
+  outline: none;
+  font-size: 16px;
+  background-color: #789395b3;
+  border: 2px solid transparent;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 4px 2px;
+}
+
+.add form input:focus {
+  border-color: #789395;
+}
+
+.add button {
+  background-color: #789395;
+  color: #e5e3c9;
+  padding: 4px 6px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-out;
+  font-weight: bold;
+}
+
+.manage .flex {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+}
+
+.manage .category {
+  flex: 0.4;
+}
+
+.manage .category form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.manage .category form input {
+  width: 100%;
+  padding: 8px 10px;
+}
+
+.manage .category form button {
+  padding: 6px 1rem;
+  font-size: 18px;
+  font-family: inherit;
+}
+
+section > div {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+section > div span {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+section > div a {
+  position: absolute;
+  right: -4rem;
+  top: calc(31px - 1rem);
+  width: 2rem;
+  height: 2rem;
+  background-color: #789395;
+  color: #e5e3c9;
+  text-align: center;
+  line-height: 2rem;
+  font-family: sans-serif;
+  font-size: 150%;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+section > div a:hover {
+  background-color: #ee5253;
+}
+
+.login .category {
+  width: 66%;
+  margin: 6rem auto 0;
+  padding: 2rem 3rem;
+}
+
+.login .f-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.login label {
+  font-weight: 300;
+  letter-spacing: 1px;
+  font-size: 18px;
+}
+
+.login input {
+  outline: none;
+  font-size: 16px;
+  background-color: #7893958a;
+  border: 2px solid transparent;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 8px 1rem;
+}
+
+.login input:focus {
+  background-color: #789395b3;
+  border-color: #789395;
+}
+
+.login button {
+  background-color: #789395;
+  color: #e5e3c9;
+  padding: 6px 1rem;
+  font-size: 18px;
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-out;
+  font-weight: bold;
+  margin: 0 auto;
+  display: block;
+}
+
+.login button:hover {
+  background-color: #4e7c7f;
+}
